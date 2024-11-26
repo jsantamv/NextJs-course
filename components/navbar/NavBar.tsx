@@ -1,27 +1,22 @@
 import React from 'react'
 import Link from 'next/link'
 import { HomeIcon } from '@primer/octicons-react'
+import { ActiveLink } from '../active-link/ActiveLink'
 
 const navItems = [
   {
-    label: 'Home',
-    href: '/'
+    text: 'Contact',
+    path: '/contact'
   },
   {
-    label: 'Contact',
-    href: '/contact'
+    text: 'About',
+    path: '/about'
   },
   {
-    label: 'About',
-    href: '/about'
-  },
-  {
-    label: 'Pricing',
-    href: '/pricing'
+    text: 'Pricing',
+    path: '/pricing'
   }
 ]
-
-
 
 export const NavBar = async () => {
   return (
@@ -37,7 +32,7 @@ export const NavBar = async () => {
       {
         navItems.map(navItem => {
           return (
-            <Link key={navItem.label} className="mr-2" href={navItem.href}>{navItem.label}</Link>
+            <ActiveLink key={navItem.text} {...navItem}/>
           )
         })
       }
